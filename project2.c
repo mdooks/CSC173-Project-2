@@ -16,6 +16,24 @@
 char * x; // global variable
 
 int parseFactor();
+int parseProduct();
+int parseSum();
+
+
+
+// Is there something to multiply?
+int parseProduct(){
+	int fac1 = parseFactor(); // First digit
+	while (*x == '*') // Char equals the multiplication sign
+	{
+		++x; // point to the next character
+		int fac2 = parseFactor(); // Second digit
+		fac1 = fac1 * fac2;
+	}
+
+	// When there are no more multiplication symbols
+	return fac1;
+}
 
 int parseFactor(){
 
@@ -26,14 +44,14 @@ int parseFactor(){
 	} 
 	else
 	{
-		printf("expected digit but found %c\n", +x); // Checks for error
+		printf("expected digit but found %c\n", *x); // Checks for error
 	}
 
 }
 
 int main(){
 	x = "2*3+4*5";
-	int result = parseFactor();
+	int result = parseProduct();
 	return 0;
 }
 
