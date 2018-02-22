@@ -82,7 +82,7 @@ Part 1: Implementing a recursive-descent parser for the grammar of arthmetic exp
 
 Note: must be able to parse products, sums, exponential equations, divisions
 
-*/
+
 
 
 int parseSum();
@@ -99,3 +99,4 @@ int parseNumber(){
 	}
 }
 
+*/
