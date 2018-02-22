@@ -12,7 +12,6 @@
 #include <stdio.h>
 
 
-
 char * x; // global variable
 
 int parseFactor();
@@ -63,4 +62,22 @@ Part 1: Implementing a recursive-descent parser for the grammar of arthmetic exp
 	if well formed: then print parse tree
 	else: print a message and resume to next line of input
 
+Note: must be able to parse products, sums, exponential equations, divisions
+
 */
+
+
+int parseSum();
+int parseProduct();
+int parseNumber(){
+	if (* x >= '0' && *x <= '9')
+	{
+		//Checks for valid digit within bounds
+		return *x++ - '0';
+		//returns x subtracting the ASCII code of 0 and moves pointer to next input
+	}
+	else{
+		printf("Parse Error: Attempted to parse but found invalid character: %s\n", *x);
+	}
+}
+
