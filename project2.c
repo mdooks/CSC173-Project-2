@@ -18,7 +18,17 @@ int parseFactor();
 int parseProduct();
 int parseSum();
 
-
+// Adds the two numbers
+int parseSum(){
+	int pro1 = parseProduct();
+	while (*x == '+')
+	{
+		++x; // Move the pointer to the next character
+		int pro2 = parseFactor();
+		pro1 = pro1 + pro2;
+	}
+	return pro1;
+}
 
 // Is there something to multiply?
 int parseProduct(){
@@ -41,6 +51,13 @@ int parseFactor(){
 	{
 		return *x++ - '0';
 	} 
+	else if(*x == '(') // Parses parenthesis
+	{
+		++x; // Eats up the (
+		int sum = parseSum();
+		++x; // consume )
+		return sum;
+	}
 	else
 	{
 		printf("expected digit but found %c\n", *x); // Checks for error
@@ -50,7 +67,8 @@ int parseFactor(){
 
 int main(){
 	x = "2*3+4*5";
-	int result = parseProduct();
+	int result = parseSum();
+	printf(result);
 	return 0;
 }
 
