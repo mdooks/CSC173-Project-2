@@ -36,3 +36,13 @@ int main(){
 	int result = parseFactor();
 	return 0;
 }
+
+/** 
+
+Part 1: Implementing a recursive-descent parser for the grammar of arthmetic expressions
+
+1. Must read successive expressions from input 
+	if well formed: then print parse tree
+	else: print a message and resume to next line of input
+
+*/
